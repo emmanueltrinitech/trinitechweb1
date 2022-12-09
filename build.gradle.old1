@@ -1,0 +1,20 @@
+
+task build
+
+task zip(type: Zip) {
+
+ from ('.'){
+
+ include "*"
+
+ include "bin/**"
+
+ include "assets/**"
+
+ include "css/**"
+
+ include "js/**"
+  }
+destinationDir(file("Zip_Dir"))
+archiveName = "website1.zip"
+}
