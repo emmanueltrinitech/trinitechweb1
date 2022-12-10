@@ -10,7 +10,7 @@ pipeline {
 
                             echo 'Running build automation'
 
-                             sh 'gradlew build --no-daemon'
+                             sh './gradlew build --no-daemon'
 
                              archiveArtifacts artifacts: 'trinitech-web/website1.zip'
 
