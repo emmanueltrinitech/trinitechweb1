@@ -12,7 +12,7 @@ pipeline {
 
                              sh './gradlew build --no-daemon'
 
-                             archiveArtifacts artifacts: 'trinitech-web/*.zip'
+                             archiveArtifacts artifacts: 'trinitech-web/website1.zip'
 
 		      }
 
