@@ -70,7 +70,7 @@ pipeline {
                                 
                                 execCommand: 'echo zip file copied'
 
-
+                               ),
                                
                            ])
                        ])
