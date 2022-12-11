@@ -40,7 +40,7 @@ pipeline {
 
                     when {  
 
-                             branch 'stream8-test'
+                            branch 'stream8-test'
 
                     }      
                 steps {
