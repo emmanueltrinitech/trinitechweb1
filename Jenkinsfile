@@ -43,21 +43,28 @@ pipeline {
                              branch 'stream8-test'
 
                     }      
+                steps {
 
-                    script {
-                        sshPublisher(
+                withCredentials([string(credentialsId: 'Centos33_login', variable: 'USERPASS')]) {
+
+                    sshPublisher(
 
                         failOnError: true,
-
-                        continueOnError: false,
 
                         publishers: [
 
                             sshPublisherDesc(
 
                                 configName: 'staging',
-                                verbose: true
-                                ), 
+
+                                sshCredentials: [
+
+                                    username: 'root',
+
+                                    encryptedPassphrase: "$USERPASS"
+
+                                ], 
+
                                 transfers: [
 
                                 sshTransfer(
