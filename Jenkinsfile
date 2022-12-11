@@ -44,7 +44,7 @@ pipeline {
 
                     }      
 
-                    steps {
+                    script {
                         sshPublisher(
 
                         failOnError: true,
@@ -55,45 +55,25 @@ pipeline {
 
                             sshPublisherDesc(
 
-                                configName: 'staging',
-                                ),
+                                configName: "${env.SSH_CONFIG_NAME}",
+                                verbose: true
+                                
                                 transfers: [
 
                                 sshTransfer(
-                                cleanRemote: false,
-
-                                excludes: '',
-
-                                execCommand: '',
-
-                                execTimeout: 120000,
-
-                                flatten: false,
-
-                                makeEmptyDirs: false,
-
-                                noDefaultExcludes: false,
-
-                                patternSeparator: '[, ]+',
-
-                                remoteDirectorySDF: false,
 
                                 sourceFiles: 'trinitech-web/website1.zip',
 
                                 removePrefix: 'trinitech-web/',
 
                                 remoteDirectory: '/tmp'   
-
+                                
+                                execCommand: 'echo zip file copied'
 
 
                                )
-                           ]
-                       ]
-
-
-	            )
-
-      
+                           ])
+                       ])
 
                }
 
