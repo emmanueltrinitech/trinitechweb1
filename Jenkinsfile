@@ -55,7 +55,7 @@ pipeline {
 
                             sshPublisherDesc(
 
-                                configName'staging',
+                                configName: 'staging',
                                 verbose: true
                                 ), 
                                 transfers: [
