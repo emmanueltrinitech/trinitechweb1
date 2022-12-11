@@ -57,7 +57,7 @@ pipeline {
 
                                 configName: "${env.SSH_CONFIG_NAME}",
                                 verbose: true
-                                
+                                ), 
                                 transfers: [
 
                                 sshTransfer(
@@ -71,7 +71,7 @@ pipeline {
                                 execCommand: 'echo zip file copied'
 
 
-                               )
+                               
                            ])
                        ])
 
