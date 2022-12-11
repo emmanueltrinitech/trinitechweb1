@@ -69,10 +69,10 @@ pipeline {
                                 remoteDirectory: '/tmp'   
                                 
 
-                               ),
+                               )
                                
-                           ])
-                       ])
+                           ]
+                       ]
 
                }
 
