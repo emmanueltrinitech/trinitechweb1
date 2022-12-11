@@ -56,7 +56,7 @@ pipeline {
                             sshPublisherDesc(
 
                                 configName: 'staging',
-                                ],
+                                ),
                                 transfers: [
 
                                 sshTransfer(
@@ -88,7 +88,7 @@ pipeline {
 
                                )
                            ]
-
+                       ]
 
 
 	            }
