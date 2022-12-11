@@ -68,7 +68,6 @@ pipeline {
 
                                 remoteDirectory: '/tmp'   
                                 
-                                execCommand: 'echo zip file copied'
 
                                ),
                                
