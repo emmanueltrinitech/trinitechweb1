@@ -48,20 +48,33 @@ pipeline {
 
 
                                 sshTransfer(
+                                cleanRemote: false,
 
-                                       sourceFiles: 'trinitech-web/website1.zip',
+                                excludes: '',
+
+                                execCommand: '',
+
+                                execTimeout: 120000,
+
+                                flatten: false,
+
+                                makeEmptyDirs: false,
+
+                                noDefaultExcludes: false,
+
+                                patternSeparator: '[, ]+',
+
+                                remoteDirectorySDF: false,
+
+                                sourceFiles: 'trinitech-web/website1.zip',
+
+                                removePrefix: 'trinitech-web/',
+
+                                remoteDirectory: '/tmp'   
 
 
 
-                                        removePrefix: 'trinitech-web/',
-
-
-
-                                        remoteDirectory: '/tmp'   
-
-
-
-                                    )
+                               )
 
 
 
