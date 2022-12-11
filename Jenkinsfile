@@ -46,7 +46,6 @@ pipeline {
 
                     steps {
 
-                         transfers: [
 
                                 sshTransfer(
 
@@ -66,7 +65,6 @@ pipeline {
 
 
 
-                                ]
 
 	            }
 
