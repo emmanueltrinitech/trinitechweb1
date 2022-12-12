@@ -45,7 +45,7 @@ pipeline {
                     }      
                 steps {
 
-                withCredentials([string(credentialsId: 'Centos33_login', variable: 'USERPASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'Centos33_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
 
                     sshPublisher(
 
@@ -59,7 +59,7 @@ pipeline {
 
                                 sshCredentials: [
 
-                                    username: 'root',
+                                    username: '$USERNAME',
 
                                     encryptedPassphrase: "$USERPASS"
 
