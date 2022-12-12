@@ -45,7 +45,7 @@ pipeline {
                     }      
                 steps {
 
-                withCredentials([string(credentialsId: 'Class33_login', variable: 'USERPASS')]) {
+                withCredentials([string(credentialsId: 'Centos33_login', variable: 'USERPASS')]) {
 
                     sshPublisher(
 
