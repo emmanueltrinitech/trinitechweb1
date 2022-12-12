@@ -45,7 +45,7 @@ pipeline {
                     }      
                 steps {
 
-                withCredentials([usernamePassword(credentialsId: 'Centos33_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'rhel8-ec2', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
 
                     sshPublisher(
 
@@ -55,7 +55,7 @@ pipeline {
 
                             sshPublisherDesc(
 
-                                configName: 'staging',
+                                configName: 'aws-rhel',
 
                                 sshCredentials: [
 
