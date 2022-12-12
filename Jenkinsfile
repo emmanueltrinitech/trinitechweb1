@@ -45,7 +45,7 @@ pipeline {
                     }      
                 steps {
 
-                withCredentials([string(credentialsId: 'centos33-jenkins-password', variable: 'USERPASS')]) {
+                withCredentials([string(credentialsId: 'Class33_login', variable: 'USERPASS')]) {
 
                     sshPublisher(
 
