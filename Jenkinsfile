@@ -45,25 +45,23 @@ pipeline {
                     }      
                 steps {
 
-                withCredentials([usernamePassword(credentialsId: 'rhel8-ec2', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
 
                     sshPublisher(
 
-                        failOnError: true,
+                        failOnError: true, continueOnError: false,
 
                         publishers: [
 
                             sshPublisherDesc(
 
                                 configName: 'aws-rhel',
-
-                                ), 
+                                verbose: true,
 
                                 transfers: [
 
                                 sshTransfer(
 
-                                sourceFiles: 'trinitech-web/website1.zip',
+                                sourceFiles: 'trinitech-web/*.zip',
 
                                 removePrefix: 'trinitech-web/',
 
