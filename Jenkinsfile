@@ -57,7 +57,7 @@ pipeline {
 
                                 configName: 'aws-rhel',
 
-                                ], 
+                                ), 
 
                                 transfers: [
 
