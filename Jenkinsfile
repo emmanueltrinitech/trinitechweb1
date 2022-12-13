@@ -57,12 +57,6 @@ pipeline {
 
                                 configName: 'aws-rhel',
 
-                                sshCredentials: [
-
-                                    username: "$USERNAME'",
-
-                                    encryptedPassphrase: "$USERPASS"
-
                                 ], 
 
                                 transfers: [
