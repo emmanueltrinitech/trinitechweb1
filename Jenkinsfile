@@ -68,24 +68,24 @@ pipeline {
                                 remoteDirectory: '/tmp',   
                                 
 
-                               )
+                                           )
                                
-                           ]
+                                       ]
 
-                        )
-                   ]
-               )
-            }
-          }
-      }
-      stage('DeployToProduction') {
+                                    )
+                                  ]
+                                )
+                              }
+                           }
+                          }
+                  stage('DeployToProduction') {
 
-                    when {  
+                     when {  
 
                             branch 'stream8-test'
 
-                    }      
-                steps {
+                     }      
+                  steps {
 
                    input 'Does the staging environment look OK?'
                    milestone(1)
