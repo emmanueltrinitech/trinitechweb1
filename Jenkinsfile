@@ -65,7 +65,7 @@ pipeline {
 
                                 removePrefix: 'trinitech-web/',
 
-                                remoteDirectory: '/tmp'   
+                                remoteDirectory: '/tmp',   
                                 
 
                                )
