@@ -73,11 +73,11 @@ pipeline {
                                        ]
 
                                     )
-                                  ]
-                                )
-                              }
+                                ]
+                              )
                            }
-                          }
+                       }
+                  }
                   stage('DeployToProduction') {
 
                      when {  
