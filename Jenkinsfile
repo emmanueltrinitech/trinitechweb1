@@ -67,7 +67,7 @@ pipeline {
 
                                 remoteDirectory: '/tmp',   
                                 
-                                 execCommand:'mv /tmp/website1.zip /tmp/website1.`date +%m-%d-%Y:%H:%M:%S`.zip',
+                                 execCommand:'mv /tmp/website1.zip /tmp/website1-version-`date +%m-%d-%Y:%H:%M:%S`.zip',
 
                                )
                                
