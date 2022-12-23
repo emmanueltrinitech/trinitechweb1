@@ -31,12 +31,14 @@ pipeline {
 
               stage('Build Docker Image') {
 		 steps{
-		  
+	           script {
                     docker.build("ewarah/website1")
 	        }
 	      }
+	     }	      
 	       stage('Test image') {
 	       steps{
+		 script{
                     app.inside {
                      sh 'echo $(curl localhost:8080)'
 		        
@@ -44,7 +46,7 @@ pipeline {
                 }
             }
        
-               
+	 }   
            
         stage('Push Docker Image') {
             when {
