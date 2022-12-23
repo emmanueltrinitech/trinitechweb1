@@ -7,15 +7,11 @@ pipeline {
               stage('Build') {
 
                      steps {
-			     
-			     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
-                            {
-                              SomeCodeThatCanBeErrored
-			    }
+			   
                                
                               
 
-                            echo 'Running build automation'
+                             echo 'Running build automation'
 
                              sh './gradlew build --no-daemon'
 
@@ -36,7 +32,7 @@ pipeline {
 	   
       	       
                steps {
-		      ContinueOtherCode 
+		    
                 script {
 		 
                     app = docker.build("ewarah/website1")
@@ -54,12 +50,13 @@ pipeline {
                 branch 'branch3'
             }
             steps {
-	          ContinueOtherCode
+	          
                 script {
+		   warnError(message: "${STAGE_NAME} stage was unstable.", catchInterruptions: false) {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
-		    
+		    }
 		  }
                 }
             }
