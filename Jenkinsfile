@@ -24,9 +24,9 @@ pipeline {
                   when {
                     branch 'branch3'
                }
-	    
+	     }
             
-            }
+           }
       	       
                steps {
                 script {
