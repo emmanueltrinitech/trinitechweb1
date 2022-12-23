@@ -26,42 +26,13 @@ pipeline {
 	      
 
               stage('Build Docker Image') {
-                  when {
-                    branch 'branch3'
-               }
-	   
-      	       
-               steps {
-		    
-                script {
-		   warnError(message: "${STAGE_NAME} stage was unstable.", catchInterruptions: false) {
-                    app = docker.build("ewarah/website1")
-                    app.inside {
-                     sh 'echo $(curl localhost:8080)'
-		      }  
-                    }
-                }
-            }
-        } 
-               
-           
-        stage('Push Docker Image') {
-            when {
-                branch 'branch3'
-            }
-            steps {
-	          
-                script {
-		   warnError(message: "${STAGE_NAME} stage was unstable.", catchInterruptions: false) {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
-                        app.push("${env.BUILD_NUMBER}")
-                        app.push("latest")
-		    }
-		  }
-                }
-            }
-        }
-	
+                 app = docker.build("ewarah/website1")
+	      }
+	       Stage('Test image') {
+		       app.inside {
+			  sh 'echo "Test passwed"'
+		       }
+	       }   
         stage('DeployToProduction') {
             when {
                 branch 'branch3'
