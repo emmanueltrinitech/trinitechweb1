@@ -25,8 +25,8 @@ pipeline {
                     branch 'branch3'
                }
 	     }
-            
            }
+         }
       	       
                steps {
                 script {
