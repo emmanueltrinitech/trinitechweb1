@@ -24,11 +24,12 @@ pipeline {
                   when {
                     branch 'branch3'
                }
-	     }
-           }
-         }
+	   
       	       
                steps {
+		       catchError {
+                sh "exit 1"
+            }
                 script {
 		 
                     app = docker.build("ewarah/website1")
