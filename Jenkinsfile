@@ -30,18 +30,19 @@ pipeline {
 	      
 
               stage('Build Docker Image') {
-                 
+		 steps{
 		  
-                    app = docker.build("ewarah/website1")
+                    docker.build("ewarah/website1")
+	        }
 	      }
-	       
-	       stage('Test image')
+	       stage('Test image') {
+	       steps{
                     app.inside {
                      sh 'echo $(curl localhost:8080)'
 		        
                     }
                 }
-           
+            }
        
                
            
