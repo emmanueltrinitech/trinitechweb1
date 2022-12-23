@@ -26,8 +26,7 @@ pipeline {
                }
 	   
       	       
-               steps {
-		       
+               
               
 		 
                     app = docker.build("ewarah/website1")
@@ -36,7 +35,7 @@ pipeline {
 		       
                     }
                
-            }
+           
         } 
         stage('Push Docker Image') {
             when {
