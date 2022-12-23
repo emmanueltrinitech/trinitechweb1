@@ -24,6 +24,11 @@ pipeline {
                   when {
                     branch 'branch3'
                }
+	    steps {
+            catchError {
+                sh "exit 1"
+            }
+        }	       
                steps {
                 script {
 		 
