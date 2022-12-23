@@ -1,6 +1,10 @@
 pipeline {
 
        agent any
+	
+	options {
+        skipStagesAfterUnstable()
+    }
 
        stages {
 
@@ -34,11 +38,11 @@ pipeline {
                steps {
 		    
                 script {
-		   warnError(message: "${STAGE_NAME} stage was unstable.", catchInterruptions: false) {
+		  
                     app = docker.build("ewarah/website1")
                     app.inside {
                      sh 'echo $(curl localhost:8080)'
-		      }  
+		        
                     }
                 }
             }
@@ -52,11 +56,11 @@ pipeline {
             steps {
 	          
                 script {
-		   warnError(message: "${STAGE_NAME} stage was unstable.", catchInterruptions: false) {
+		  
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
-		    }
+		
 		  }
                 }
             }
