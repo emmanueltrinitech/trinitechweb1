@@ -39,7 +39,7 @@ pipeline {
 	       stage('Test image') {
 	       steps{
 		 script{
-                    app.inside {
+                     inside {
                      sh 'echo $(curl localhost:8080)'
 		        
                     }
