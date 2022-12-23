@@ -7,6 +7,13 @@ pipeline {
               stage('Build') {
 
                      steps {
+			     
+			     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE')
+                            {
+                              SomeCodeThatCanBeErrored
+			    }
+                               
+                              
 
                             echo 'Running build automation'
 
@@ -29,7 +36,7 @@ pipeline {
 	   
       	       
                steps {
-		       
+		      ContinueOtherCode 
                 script {
 		 
                     app = docker.build("ewarah/website1")
@@ -47,7 +54,7 @@ pipeline {
                 branch 'branch3'
             }
             steps {
-	          
+	          ContinueOtherCode
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
                         app.push("${env.BUILD_NUMBER}")
