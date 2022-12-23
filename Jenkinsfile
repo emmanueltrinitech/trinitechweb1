@@ -20,23 +20,26 @@ pipeline {
 
 		}
 
-               stage('Build Docker Image') {
+              stage('Build Docker Image') {
                   when {
                     branch 'branch3'
                }
 	   
       	       
-               
-              
+               steps {
+		       
+                script {
 		 
                     app = docker.build("ewarah/website1")
                     app.inside {
                      sh 'echo $(curl localhost:8080)'
 		       
                     }
+                }
+            }
+        } 
                
            
-        } 
         stage('Push Docker Image') {
             when {
                 branch 'branch3'
