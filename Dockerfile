@@ -49,6 +49,21 @@ RUN yum -y install passwd
 
 RUN yum -y install which
 
+
+RUN yum install sudo -y
+
+RUN yum install ncurses -y
+
+RUN yum install cockpit -y
+
+RUN echo root:school1 | chpasswd
+
+RUN useradd trinitechuser
+
+RUN echo trinitechuser:school1 | chpasswd
+
+RUN echo "trinitechuser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
 RUN yum clean all
 
 
@@ -67,4 +82,8 @@ WORKDIR /var/www/html/
 COPY . .
 
 RUN systemctl enable httpd.service
+
 RUN systemctl enable sshd
+
+RUN systemctl enable cockpit.socket
+
