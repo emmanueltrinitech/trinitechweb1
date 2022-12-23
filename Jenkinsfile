@@ -36,8 +36,8 @@ pipeline {
 		    
                 script {
 		   warnError(message: "${STAGE_NAME} stage was unstable.", catchInterruptions: false) {
-                    app = docker.build("ewarah/website1")
-                    app.inside {
+                    docker.build("ewarah/website1")
+                    inside {
                      sh 'echo $(curl localhost:8080)'
 		      }  
                     }
