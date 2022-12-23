@@ -26,11 +26,11 @@ pipeline {
                }
                steps {
                 script {
-		   try {	
+		   	
                     app = docker.build("ewarah/website1")
                     app.inside {
                      sh 'echo $(curl localhost:8080)'
-		    }    
+		       
                     }
                 }
             }
