@@ -1,4 +1,3 @@
-
 pipeline {
 
        agent any
@@ -36,8 +35,8 @@ pipeline {
 		    
                 script {
 		   warnError(message: "${STAGE_NAME} stage was unstable.", catchInterruptions: false) {
-                    docker.build("ewarah/website1")
-                    inside {
+                    app = docker.build("ewarah/website1")
+                    app.inside {
                      sh 'echo $(curl localhost:8080)'
 		      }  
                     }
