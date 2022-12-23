@@ -21,12 +21,12 @@ pipeline {
 		}
 	       
 	      try {
-   stage('some-stage') {
-         //do something
-   }
- } catch (Exception e) {
-    echo "Stage failed, but we continue"  
- }
+                stage('some-stage') {
+                      //do something
+                }
+               } catch (Exception e) {
+                 echo "Stage failed, but we continue"  
+                }
  
 
               stage('Build Docker Image') {
