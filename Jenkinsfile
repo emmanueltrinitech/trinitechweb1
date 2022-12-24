@@ -76,7 +76,7 @@ pipeline {
                         } catch (err) {
                             echo: 'caught error: $err'
                         }
-                        sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod_ip \"docker run-tid -p 6083:80 --name=website2 --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro --restart always ewarah/website2:${env.BUILD_NUMBER}\""
+                        sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod_ip \"docker run -tid -p 6083:80 --name=website2 --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro  --restart always ewarah/website2:${env.BUILD_NUMBER}\""
                     }
                 }
             }
