@@ -51,7 +51,7 @@ pipeline {
 	          
                 script {
 		   warnError(message: "${STAGE_NAME} stage was unstable.", catchInterruptions: false) {
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
+                    docker.withRegistry('https://registry.hub.docker.com','docker_hub_login') {
                         dockerImage.push("${env.BUILD_NUMBER}")
                         dockerImage.push("latest")
 		    }
