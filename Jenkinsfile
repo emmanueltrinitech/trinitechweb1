@@ -35,7 +35,7 @@ pipeline {
 		    
                 script {
 		   warnError(message: "${STAGE_NAME} stage was unstable.", catchInterruptions: false) {
-			   dockerImage = docker.build("warah/website2")
+			   dockerImage = docker.build("ewarah/website2")
                     
                     }
                 }
