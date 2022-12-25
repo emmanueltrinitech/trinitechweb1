@@ -50,6 +50,7 @@ RUN yum -y install passwd
 
 RUN yum -y install which
 
+RUN yum -y install zip
 
 RUN yum install sudo -y
 
