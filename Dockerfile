@@ -20,7 +20,7 @@ rm -f /lib/systemd/system/basic.target.wants/*;\
 
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 
-VOLUME: ["/sys/fs/cgroup:/sys/fs/cgroup:rw"]
+VOLUME ["/sys/fs/cgroup:/sys/fs/cgroup:rw"]
  
 cgroupns_mode: host  ## <-- This is the line I added
 # Install Apache
