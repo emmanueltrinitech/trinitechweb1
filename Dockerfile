@@ -20,8 +20,12 @@ rm -f /lib/systemd/system/basic.target.wants/*;\
 
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 
-VOLUME [ "/sys/fs/cgroup" ]
-
+volumes:
+   - /sys/fs/cgroup:/sys/fs/cgroup:rw
+   - /var/lib/containerd
+cgroupns_mode: host  ## <-- This is the line I added
+privileged: true
+pre_build_image: true
 
 
 # Install Apache
