@@ -80,7 +80,9 @@ EXPOSE 22
 
 WORKDIR /var/www/html/
 
-COPY . .
+COPY ./trinitech-web/*.zip .
+
+RUN unzip *.zip
 
 RUN systemctl enable httpd.service
 
