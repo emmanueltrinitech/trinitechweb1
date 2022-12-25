@@ -2,7 +2,7 @@ FROM centos:8
 
 ENV container docker
 
-RUN dnf -y update && dnf clean all
+RUN yum -y update && yum clean all
 
 RUN dnf -y install systemd && dnf clean all && \
 
