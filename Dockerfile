@@ -20,9 +20,10 @@ rm -f /lib/systemd/system/basic.target.wants/*;\
 
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 
-VOLUME ["/sys/fs/cgroup:/sys/fs/cgroup:rw"]
+VOLUME [ "/sys/fs/cgroup" ]
  
-cgroupns_mode: host  ## <-- This is the line I added
+cgroupns_mode: host  
+
 # Install Apache
 
 RUN cd /etc/yum.repos.d/
