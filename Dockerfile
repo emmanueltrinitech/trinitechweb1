@@ -22,7 +22,6 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 
 VOLUME [ "/sys/fs/cgroup" ]
  
-cgroupns_mode: host  
 
 # Install Apache
 
