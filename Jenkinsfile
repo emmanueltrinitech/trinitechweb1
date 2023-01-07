@@ -35,7 +35,7 @@ pipeline {
 		    
                 script {
 		   warnError(message: "${STAGE_NAME} stage was unstable.", catchInterruptions: false) {
-			   dockerImage = docker.build("ewarah/website2")
+			   dockerImage = docker.build("ewarah/website3")
                     
                     }
                 }
@@ -71,12 +71,12 @@ pipeline {
                     script {
                         sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod_ip \"docker pull ewarah/website2:${env.BUILD_NUMBER}\""
                         try {
-                            sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod_ip \"docker stop website2\""
-                            sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod_ip \"docker rm website2\""
+                            sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod_ip \"docker stop website3\""
+                            sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod_ip \"docker rm website3\""
                         } catch (err) {
                             echo: 'caught error: $err'
                         }
-                        sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod_ip \"docker run -tid -p 6222:22 -p 6083:80 -p 9097:9090 -p 8089:8080 --name=website2 --privileged --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro  --restart always ewarah/website2:${env.BUILD_NUMBER} /usr/sbin/init\""
+                        sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod_ip \"docker run -tid -p 6322:22 -p 6183:80 -p 9097:9090 -p 8189:8080 --name=website3 --privileged --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro  --restart always ewarah/website3:${env.BUILD_NUMBER} /usr/sbin/init\""
                     }
                 }
             }
