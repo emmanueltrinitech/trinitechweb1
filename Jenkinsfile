@@ -71,8 +71,8 @@ pipeline {
                     script {
                         sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no -p 5022 $USERNAME@$prod_ip \"docker pull ewarah/website3:${env.BUILD_NUMBER}\""
                         try {
-                            sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod_ip \"docker stop website3\""
-                            sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$prod_ip \"docker rm website3\""
+                            sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no -p 5022 $USERNAME@$prod_ip \"docker stop website3\""
+                            sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no -p 5022 $USERNAME@$prod_ip \"docker rm website3\""
                         } catch (err) {
                             echo: 'caught error: $err'
                         }
