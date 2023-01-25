@@ -1,0 +1,36 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: website3
+spec:
+  type: NodePort
+  selector:
+    app: website3
+  ports:
+  - protocol: TCP
+    port: 8585
+    nodePort: 8585
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: website3
+  labels:
+    app: website3
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: website3
+  template:
+    metadata:
+      labels:
+        app: website3
+    spec:
+      containers:
+      - name: Website3
+        image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
+        ports:
+        - containerPort: 8585
